@@ -1,5 +1,4 @@
 services:
-  # 1. Le stockage (MinIO)
   minio:
     build:
       context: ./docker/minio
@@ -11,15 +10,19 @@ services:
       - MINIO_ROOT_PASSWORD=minioadmin
     volumes:
       - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-  # 2. L'assistant pour créer les buckets (dossiers)
   minio-init:
     image: minio/mc
     depends_on:
-      - minio
+      minio:
+        condition: service_healthy
     entrypoint: >
       /bin/sh -c "
-      sleep 5;
       mc alias set myminio http://minio:9000 minioadmin minioadmin;
       mc mb myminio/dvc-storage || true;
       mc mb myminio/mlflow-artifacts || true;
@@ -28,7 +31,6 @@ services:
       exit 0;
       "
 
-  # 3. Le suivi ML (MLflow)
   mlflow:
     build:
       context: ./docker/mlflow
@@ -40,10 +42,11 @@ services:
       - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
       - MLFLOW_S3_IGNORE_RESPONSE_AUTHENTICATION=true
     depends_on:
-      - minio
-      - minio-init
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_started
 
-  # 4. Ton code (Pipeline)
   pipeline:
     build:
       context: .
@@ -57,18 +60,19 @@ services:
       - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
     command: sh /app/docker/pipeline/init_dvc.sh
     depends_on:
-      - minio
-      - minio-init
-      - mlflow
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_started
+      mlflow:
+        condition: service_started
 
-  # 5. Les tests de correction
   tests:
     build:
       context: ./tests
       dockerfile: Dockerfile
     depends_on:
       - minio
-      - minio-init
       - mlflow
       - pipeline
     environment:

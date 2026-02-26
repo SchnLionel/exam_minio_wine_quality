@@ -3,22 +3,19 @@ stages:
   data_ingestion:
     cmd: python src/pipeline/pipeline_steps/stage01_data_ingestion.py
     deps:
-    - path: src/config.yaml
+    - path: src/pipeline/config.yaml
       hash: md5
       md5: 6f3b6ae109aaacb645b0c22c3b91fd8f
       size: 816
-      isexec: true
     - path: src/pipeline/pipeline_steps/stage01_data_ingestion.py
       hash: md5
-      md5: b31b74db29d74c52f397ddc1ab285ecf
-      size: 1102
-      isexec: true
+      md5: a40d4fbc7ae9e04d3609e3c6e7bd2909
+      size: 1121
     outs:
     - path: data/raw/winequality-red.csv
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
-      isexec: true
   data_validation:
     cmd: python src/pipeline/pipeline_steps/stage02_data_validation.py
     deps:
@@ -26,23 +23,19 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
-      isexec: true
     - path: src/pipeline/config.yaml
       hash: md5
       md5: 6f3b6ae109aaacb645b0c22c3b91fd8f
       size: 816
-      isexec: true
     - path: src/pipeline/pipeline_steps/stage02_data_validation.py
       hash: md5
-      md5: de78f53b3cea8e100348041e28dfeaa6
-      size: 983
-      isexec: true
+      md5: fa4e6952c7bfa4848030e1e0bbfd0ebc
+      size: 1002
     outs:
     - path: data/status.txt
       hash: md5
       md5: 86e6a2f694c57a675b3e2da6b95ff9ba
       size: 23
-      isexec: true
   data_transformation:
     cmd: python src/pipeline/pipeline_steps/stage03_data_transformation.py
     deps:
@@ -50,43 +43,35 @@ stages:
       hash: md5
       md5: 6a883fd98624e18c0b7ce251f4fab4fb
       size: 100951
-      isexec: true
     - path: data/status.txt
       hash: md5
       md5: 86e6a2f694c57a675b3e2da6b95ff9ba
       size: 23
-      isexec: true
     - path: src/pipeline/config.yaml
       hash: md5
       md5: 6f3b6ae109aaacb645b0c22c3b91fd8f
       size: 816
-      isexec: true
     - path: src/pipeline/pipeline_steps/stage03_data_transformation.py
       hash: md5
-      md5: 3350883f9c952e9df292db4585d666b7
-      size: 1372
-      isexec: true
+      md5: 74933a96d9caa00e468e2c501f0af8b9
+      size: 1391
     outs:
     - path: data/processed/X_test.csv
       hash: md5
       md5: 9ae87aeb78fbccba2b39e275486125d5
       size: 18188
-      isexec: true
     - path: data/processed/X_train.csv
       hash: md5
       md5: 8d0713cbe22ad72af5f863e9e32577e6
       size: 72229
-      isexec: true
     - path: data/processed/y_test.csv
       hash: md5
       md5: 52997ed677033cccf5874db23d054043
       size: 648
-      isexec: true
     - path: data/processed/y_train.csv
       hash: md5
       md5: 4040613523475448ce5a6170c18e383e
       size: 2566
-      isexec: true
   model_trainer:
     cmd: python src/pipeline/pipeline_steps/stage04_model_trainer.py
     deps:
@@ -94,22 +79,23 @@ stages:
       hash: md5
       md5: 8d0713cbe22ad72af5f863e9e32577e6
       size: 72229
-      isexec: true
     - path: data/processed/y_train.csv
       hash: md5
       md5: 4040613523475448ce5a6170c18e383e
       size: 2566
-      isexec: true
     - path: src/pipeline/config.yaml
       hash: md5
       md5: 6f3b6ae109aaacb645b0c22c3b91fd8f
       size: 816
-      isexec: true
     - path: src/pipeline/pipeline_steps/stage04_model_trainer.py
       hash: md5
-      md5: f54d1a096accdeeeeee6665001ab130a
-      size: 951
-      isexec: true
+      md5: d9ea34fd99e44b4447bc8910b6a72dc3
+      size: 970
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: 211569712214657c2d5a7077fd79d258
+      size: 1183
   model_evaluation:
     cmd: python src/pipeline/pipeline_steps/stage05_model_evaluation.py
     deps:
@@ -117,30 +103,24 @@ stages:
       hash: md5
       md5: 9ae87aeb78fbccba2b39e275486125d5
       size: 18188
-      isexec: true
     - path: data/processed/y_test.csv
       hash: md5
       md5: 52997ed677033cccf5874db23d054043
       size: 648
-      isexec: true
     - path: models/model.joblib
       hash: md5
-      md5: 3ec17c9e73637f9f72b3e5925e6c6407
-      size: 1279
-      isexec: true
-    - path: src/config.yaml
+      md5: 211569712214657c2d5a7077fd79d258
+      size: 1183
+    - path: src/pipeline/config.yaml
       hash: md5
       md5: 6f3b6ae109aaacb645b0c22c3b91fd8f
       size: 816
-      isexec: true
     - path: src/pipeline/pipeline_steps/stage05_model_evaluation.py
       hash: md5
-      md5: d3fa586225992ed94b1d4fefff1e4fa7
-      size: 995
-      isexec: true
+      md5: bd50c3253772aae9301b923ae49729df
+      size: 1014
     outs:
     - path: metrics/metrics.json
       hash: md5
       md5: 56bca8eb59121ad1e8515d0cb4692efc
       size: 96
-      isexec: true

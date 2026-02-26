@@ -15,6 +15,7 @@ stages:
     - src/pipeline/pipeline_steps/stage02_data_validation.py
     outs:
     - data/status.txt
+
   data_transformation:
     cmd: python src/pipeline/pipeline_steps/stage03_data_transformation.py
     deps:
@@ -27,6 +28,7 @@ stages:
     - data/processed/X_train.csv
     - data/processed/y_test.csv
     - data/processed/y_train.csv
+
   model_trainer:
     cmd: python src/pipeline/pipeline_steps/stage04_model_trainer.py
     deps:
@@ -34,6 +36,9 @@ stages:
     - data/processed/y_train.csv
     - src/pipeline/config.yaml
     - src/pipeline/pipeline_steps/stage04_model_trainer.py
+    outs:
+    - models/model.joblib
+
   model_evaluation:
     cmd: python src/pipeline/pipeline_steps/stage05_model_evaluation.py
     deps:
