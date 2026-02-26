@@ -1025,3 +1025,104 @@ x=======x
 2025-04-28 13:44:36,663 - custom_logger - INFO - >>>>> stage Model evaluation stage completed <<<<< 
 
  x========x
+2026-02-26 07:15:34,056 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:15:34,425 - pipeline.custom_logger - INFO - Parent folder: /app/src
+2026-02-26 07:15:34,425 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage started <<<<<
+2026-02-26 07:15:34,432 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:15:34,434 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:15:34,437 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:15:34,438 - pipeline.custom_logger - INFO - created directory at: data/raw
+2026-02-26 07:15:34,845 - pipeline.custom_logger - INFO - data/raw/data.zip download! With following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 533E:353428:70627:3E7E8B:699FF305
+Accept-Ranges: bytes
+Date: Thu, 26 Feb 2026 07:15:34 GMT
+Via: 1.1 varnish
+X-Served-By: cache-dub4368-DUB
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1772090135.738222,VS0,VE139
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 4d321a8ebad8ce01dc2a716eb366f70bef651a22
+Expires: Thu, 26 Feb 2026 07:20:34 GMT
+Source-Age: 0
+
+
+2026-02-26 07:15:34,847 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage completed <<<<<
+
+x=======x
+2026-02-26 07:18:25,125 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:18:25,387 - pipeline.custom_logger - INFO - Parent folder: /app/src
+2026-02-26 07:18:25,388 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage started <<<<<
+2026-02-26 07:18:25,395 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:18:25,397 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:18:25,401 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:18:25,402 - pipeline.custom_logger - INFO - created directory at: data/raw
+2026-02-26 07:18:25,402 - pipeline.custom_logger - INFO - File already exists.
+2026-02-26 07:18:25,405 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage completed <<<<<
+
+x=======x
+2026-02-26 07:19:59,630 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:19:59,909 - pipeline.custom_logger - INFO - Parent folder: /app/src
+2026-02-26 07:19:59,909 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage started <<<<<
+2026-02-26 07:19:59,917 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:19:59,918 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:19:59,922 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:19:59,923 - pipeline.custom_logger - INFO - created directory at: data/raw
+2026-02-26 07:19:59,923 - pipeline.custom_logger - INFO - File already exists.
+2026-02-26 07:19:59,925 - pipeline.custom_logger - INFO - >>>>> stage Data Ingestion stage completed <<<<<
+
+x=======x
+2026-02-26 07:20:00,481 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:20:01,188 - pipeline.custom_logger - INFO - >>>>> stage Data Validation stage started <<<<<
+2026-02-26 07:20:01,195 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:20:01,197 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:20:01,201 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:20:01,201 - pipeline.custom_logger - INFO - created directory at: data
+2026-02-26 07:20:01,222 - pipeline.custom_logger - INFO - >>>>> stage Data Validation stage completed <<<<<
+
+x=======x
+2026-02-26 07:20:01,922 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:20:03,313 - pipeline.custom_logger - INFO - >>>>> stage Data Transformation stage started <<<<<
+2026-02-26 07:20:03,319 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:20:03,321 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:20:03,325 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:20:03,326 - pipeline.custom_logger - INFO - created directory at: data/processed
+2026-02-26 07:20:03,375 - pipeline.custom_logger - INFO - Splitted data into training and test sets
+2026-02-26 07:20:03,375 - pipeline.custom_logger - INFO - X_train shape: (1279, 11), y_train shape: (1279,)
+2026-02-26 07:20:03,375 - pipeline.custom_logger - INFO - X_test shape: (320, 11), y_test shape: (320,)
+2026-02-26 07:20:03,375 - pipeline.custom_logger - INFO - >>>>> stage Data Transformation stage completed <<<<<
+
+x=======x
+2026-02-26 07:20:04,151 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:20:06,346 - pipeline.custom_logger - INFO - >>>>> stage Model trainer stage started <<<<<
+2026-02-26 07:20:06,352 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:20:06,354 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:20:06,357 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:20:06,358 - pipeline.custom_logger - INFO - created directory at: models
+2026-02-26 07:20:13,550 - botocore.credentials - INFO - Found credentials in environment variables.
+2026-02-26 07:20:14,210 - pipeline.custom_logger - INFO - >>>>> stage Model trainer stage completed <<<<< 
+
+ x========x
+2026-02-26 07:20:15,350 - pipeline.custom_logger - INFO - Custom logger module initialized.
+2026-02-26 07:20:17,387 - pipeline.custom_logger - INFO - >>>>> stage Model evaluation stage started <<<<<
+2026-02-26 07:20:17,395 - pipeline.custom_logger - INFO - yaml file: src/pipeline/config.yaml loaded successfully
+2026-02-26 07:20:17,396 - pipeline.custom_logger - INFO - yaml file: src/pipeline/models_module_def/params.yaml loaded successfully
+2026-02-26 07:20:17,400 - pipeline.custom_logger - INFO - yaml file: src/pipeline/data_module_def/schema.yaml loaded successfully
+2026-02-26 07:20:17,401 - pipeline.custom_logger - INFO - created directory at: metrics
+2026-02-26 07:20:17,675 - pipeline.custom_logger - INFO - json file saved at: metrics/metrics.json
+2026-02-26 07:20:21,912 - botocore.credentials - INFO - Found credentials in environment variables.
+2026-02-26 07:20:22,603 - pipeline.custom_logger - INFO - >>>>> stage Model evaluation stage completed <<<<< 
+
+ x========x
